@@ -19,7 +19,7 @@ int main(){
 	case 3:
 	b=3;
 	}
-	int d[b][c]; //d:紀錄所有科目
+	int d[b][c]; //d:紀錄所有人數及科目
 	cout << "輸入成績時請依照科目順序輸入";
 	cout << endl;
 	for(int y=0;y<c;y++){
