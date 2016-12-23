@@ -1,0 +1,35 @@
+#include <iostream>
+using namespace std;
+int main(){
+    int a; //a:科目數量
+	cout << "輸入科目數量" 
+	<< "1 國/英/數/自/社"
+	<< "2 國/英/數/自/地/歷/公"
+	<< "3 國/英/數" 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    return 0;
+    }
