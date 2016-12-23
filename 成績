@@ -2,34 +2,26 @@
 using namespace std;
 int main(){
     int a; //a:科目數量
+    int b; //b:輸入總數
+	int c; //c:人數 
 	cout << "請輸入科目數量 :" 
 	<< "1 : 國/英/數/自/社  "
 	<< "2 : 國/英/數/自/地/歷/公  "
 	<< "3 : 國/英/數  "; 
-	
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+	cout << endl;
+	cin >> a;
+	switch(a){
+	case 1:
+	b=5;
+	case 2:
+	b=7;
+	case 3:
+	b=3;
+	}
+	int d[b][c]; //d:紀錄所有科目
+	cout << "輸入成績時請依照科目順序輸入";
+	cout << endl;
+	for(int y=0;y<c;y++){
+	for(int z=0;z<b;z++) cin >> d[z][y];}
     return 0;
     }
