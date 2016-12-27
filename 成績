@@ -27,7 +27,7 @@ int main(){
 	cout << "例如: (1號) 成績 成績..." << endl;
 	for(int y=0;y<c;y++){
 	for(int z=0;z<b;z++) cin >> d[z][y];} //成績輸入 
-	switch(b){
+	/*switch(b){
 	case 5:
 	for(int N=0;N<5;N++){ //紀錄次數 
 	for(int y=0,e=0;y<c;y++){ //e:讀取 暫存成績 
@@ -104,6 +104,6 @@ int main(){
 	}
 	}
 	}
-	}
+	}*/
     return 0;
     }
