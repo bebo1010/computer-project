@@ -1,0 +1,38 @@
+#include <iostream>
+#include <stdlib.h>
+#include <time.h>
+using namespace std;
+
+int main(){
+	int a=0,x=0,MAX=100,MIN=1,b,c=0;
+	srand(time(NULL));
+	a=(rand() % 100)+1;
+	cout << "請猜一個介於1到100的數" << endl;
+	while(x!=a){
+	/*
+	b=5-c;
+	cout << "猜測次數剩下" << b << "次" << endl; 
+	if(c=5){
+	cout << "超出猜測次數" << endl;
+	break;
+	}*/
+	cin >> x;
+	if(x>MAX){
+	cout << "輸入超出範圍" << endl;
+	}
+	if(x<MIN){
+	cout << "輸入超出範圍" << endl;
+	}
+	if(x>a&&x<MAX){
+	MAX=x;
+	cout << MIN << "到" << MAX << endl;
+	}
+	if(x<a&&x>MIN){
+	MIN=x;
+	cout << MIN << "到" << MAX << endl;
+	}
+	c++;
+	}
+	if(x=a) cout << "你猜對了" << endl;
+	return 0;
+}
