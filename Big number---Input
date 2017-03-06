@@ -1,0 +1,30 @@
+#include <iostream>
+#include <string.h>
+#define MAX 300
+using namespace std;
+void Input(int n[])
+{
+    int i, l;
+    char s[MAX];
+    cin >> s;
+    l=strlen(s);
+    for (i=0; i<l; i++)
+        n[i]=s[l-i-1]-'0';
+    for ( ; i<MAX; i++)
+        n[i]=0;
+}
+void Print(int n[])
+{
+    int i;
+    for (i=MAX-1; i>0; i--)
+        if(n[i]!=0) break;
+    for ( ; i>=0; i--)
+        cout << n[i];
+    cout << endl;
+}
+int main(){
+int a[MAX];
+Input(a);
+Print(a);
+ return 0;
+}
