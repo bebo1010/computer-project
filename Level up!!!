@@ -1,0 +1,19 @@
+#include <iostream>
+using namespace std;
+int main(){
+	long long int a[100];
+	a[0]=10;
+	for (int x=1;x<100;x++) a[x]=2*a[x-1]-3*(x+1);
+	long long int z[100];
+	for (int x=0;x<100;x++) z[x]=((x+1)*(a[0]+a[x]))/2;
+	long long int x;
+	int c=1,b=0; //x為目標值 c為計數值 
+	cin >> x;
+	for (1;b<100;c++,b++) {
+	if(z[b]>x) break;
+	else continue;
+	} 
+	int d=z[b]-x;
+	cout << c << " " << d;
+    return 0;
+}
