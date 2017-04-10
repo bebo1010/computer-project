@@ -1,0 +1,19 @@
+#include <iostream>
+using namespace std;
+int main(){
+	int x,y; //x y為範圍 
+	cin >> x >> y;
+	int a=x,b=0; //a為目前偵測數字 b為計數值 
+	for(1;a>=x && a<=y;a++){
+		if(a%2==0) continue;
+		else{
+			if(a%3==0) continue;
+			else{
+				if(a%5==0) continue;
+				else b++;
+			}
+		}
+	}
+	cout << b;
+    return 0;
+}
