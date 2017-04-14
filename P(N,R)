@@ -1,0 +1,11 @@
+#include <iostream>
+using namespace std;
+int main(){
+	cout << "計算 P (排列方式共有幾種)" << endl;
+	int x,y;
+	long long int a=1;
+	cin >> x >> y;
+	for(int i=y,c=x;i>0;i--,c--) a=a*c;
+	cout << a;
+    return 0;
+}
