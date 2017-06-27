@@ -4,28 +4,6 @@
 
 #include <Servo.h>
 
-MeDCMotor motor_9(9);
-MeDCMotor motor_10(10);
-void move(int direction, int speed)
-{
-      int leftSpeed = 0;
-      int rightSpeed = 0;
-      if(direction == 1){
-        	leftSpeed = speed;
-        	rightSpeed = speed;
-      }else if(direction == 2){
-        	leftSpeed = -speed;
-        	rightSpeed = -speed;
-      }else if(direction == 3){
-        	leftSpeed = -speed;
-        	rightSpeed = speed;
-      }else if(direction == 4){
-        	leftSpeed = speed;
-        	rightSpeed = -speed;
-      }
-      motor_9.run((9)==M1?-(leftSpeed):(leftSpeed));
-      motor_10.run((10)==M1?-(rightSpeed):(rightSpeed));
-}
 double angle_rad = PI/180.0;
 double angle_deg = 180.0/PI;
 void B();
@@ -36,16 +14,16 @@ void __func__85_112_45_117_112();
 double Up;
 double __var__85_112_45_68_101_103_114_101_101;
 double __var__43;
-double Bottom;
-double __var__66_111_116_116_111_109_45_68_101_103_114_101_101;
 Servo servo_Up;
-Servo servo_Bottom;
-void catch();
+void __func__85_112_45_100_111_119_110();
+double __var__45;
+void catch_close();
 double __var__67_97_116_99_104_32_49;
 double __var__67_97_116_99_104_32_68_101_103_114_101_101_32_49;
 Servo servo___var__67_97_116_99_104_32_49;
-double __var__45;
-void __func__85_112_45_100_111_119_110();
+void catch_open();
+double __var__67_97_116_99_104_32_68_101_103_114_101_101_32_50;
+double __var__67_97_116_99_104_32_50;
 double __var__65_45_45_32_88;
 double __var__65_45_45_32_89;
 double __var__66_45_45_32_88;
@@ -57,7 +35,7 @@ void B()
     analogWrite(6,150);
     analogWrite(9,0);
     analogWrite(10,150);
-    _delay(0.2);
+    delay(200);
 }
 
 void R()
@@ -66,7 +44,7 @@ void R()
     analogWrite(6,0);
     analogWrite(9,120);
     analogWrite(10,0);
-    _delay(0.1);
+    delay(100);
 }
 
 void F()
@@ -75,7 +53,7 @@ void F()
     analogWrite(6,0);
     analogWrite(9,150);
     analogWrite(10,0);
-    _delay(0.2);
+    delay(200);
 }
 
 void L()
@@ -84,38 +62,32 @@ void L()
     analogWrite(6,0);
     analogWrite(9,120);
     analogWrite(10,0);
-    _delay(0.1);
+    delay(100);
 }
 
 void __func__85_112_45_117_112()
 {
     servo_Up.write((__var__85_112_45_68_101_103_114_101_101) + (__var__43)); // write to servo
-    servo_Bottom.write((__var__66_111_116_116_111_109_45_68_101_103_114_101_101) + (__var__43)); // write to servo
     if(((__var__85_112_45_68_101_103_114_101_101)==(180))){
         __var__85_112_45_68_101_103_114_101_101 = 0;
     }else{
         __var__85_112_45_68_101_103_114_101_101 += __var__43;
     }
-    if(((__var__66_111_116_116_111_109_45_68_101_103_114_101_101)==(180))){
-        __var__66_111_116_116_111_109_45_68_101_103_114_101_101 = 0;
-    }else{
-        __var__66_111_116_116_111_109_45_68_101_103_114_101_101 += __var__43;
-    }
-    _delay(0.1);
+    delay(100);
 }
 
-void catch()
+void __func__85_112_45_100_111_119_110()
 {
-    servo___var__67_97_116_99_104_32_49.write((__var__67_97_116_99_104_32_68_101_103_114_101_101_32_49) + (__var__43)); // write to servo
-    if(((__var__67_97_116_99_104_32_68_101_103_114_101_101_32_49)==(180))){
-        __var__67_97_116_99_104_32_68_101_103_114_101_101_32_49 = 0;
+    servo_Up.write((__var__85_112_45_68_101_103_114_101_101) + (__var__45)); // write to servo
+    if(((__var__85_112_45_68_101_103_114_101_101)==(0))){
+        __var__85_112_45_68_101_103_114_101_101 = 180;
     }else{
-        __var__67_97_116_99_104_32_68_101_103_114_101_101_32_49 += __var__43;
+        __var__85_112_45_68_101_103_114_101_101 += __var__45;
     }
-    _delay(0.1);
+    delay(100);
 }
 
-void catch()
+void catch_close()
 {
     servo___var__67_97_116_99_104_32_49.write((__var__67_97_116_99_104_32_68_101_103_114_101_101_32_49) + (__var__45)); // write to servo
     if(((__var__67_97_116_99_104_32_68_101_103_114_101_101_32_49)==(0))){
@@ -123,47 +95,44 @@ void catch()
     }else{
         __var__67_97_116_99_104_32_68_101_103_114_101_101_32_49 += __var__45;
     }
-    _delay(0.1);
+    delay(100);
 }
 
-void __func__85_112_45_100_111_119_110()
+void catch_open()
 {
-    servo_Up.write((__var__85_112_45_68_101_103_114_101_101) + (__var__45)); // write to servo
-    servo_Bottom.write((__var__66_111_116_116_111_109_45_68_101_103_114_101_101) + (__var__45)); // write to servo
-    if(((__var__85_112_45_68_101_103_114_101_101)==(0))){
-        __var__85_112_45_68_101_103_114_101_101 = 180;
+    servo___var__67_97_116_99_104_32_49.write((__var__67_97_116_99_104_32_68_101_103_114_101_101_32_49) + (__var__43)); // write to servo
+    if(((__var__67_97_116_99_104_32_68_101_103_114_101_101_32_49)==(180))){
+        __var__67_97_116_99_104_32_68_101_103_114_101_101_32_49 = 0;
     }else{
-        __var__85_112_45_68_101_103_114_101_101 += __var__45;
+        __var__67_97_116_99_104_32_68_101_103_114_101_101_32_49 += __var__43;
     }
-    if(((__var__66_111_116_116_111_109_45_68_101_103_114_101_101)==(0))){
-        __var__66_111_116_116_111_109_45_68_101_103_114_101_101 = 180;
-    }else{
-        __var__66_111_116_116_111_109_45_68_101_103_114_101_101 += __var__43;
-    }
-    _delay(0.1);
+    delay(100);
 }
 
 void setup(){
-    Up = 0;
-    __var__67_97_116_99_104_32_49 = 1;
-    Bottom = 2;
     pinMode(5,OUTPUT);
     pinMode(6,OUTPUT);
     pinMode(9,OUTPUT);
     pinMode(10,OUTPUT);
     servo_Up.attach(Up); // init pin
-    servo_Bottom.attach(Bottom); // init pin
     servo___var__67_97_116_99_104_32_49.attach(__var__67_97_116_99_104_32_49); // init pin
     pinMode(Up,INPUT);
     pinMode(__var__67_97_116_99_104_32_49,INPUT);
-    pinMode(Bottom,INPUT);
+    pinMode(__var__67_97_116_99_104_32_50,INPUT);
     pinMode(A0+0,INPUT);
     pinMode(A0+1,INPUT);
     pinMode(A0+2,INPUT);
     pinMode(A0+3,INPUT);
+    analogWrite(5,0);
+    analogWrite(6,0);
+    analogWrite(9,0);
+    analogWrite(10,0);
+    Up = 1;
+    __var__67_97_116_99_104_32_49 = 2;
+    __var__67_97_116_99_104_32_50 += 3;
     __var__85_112_45_68_101_103_114_101_101 = digitalRead(Up);
     __var__67_97_116_99_104_32_68_101_103_114_101_101_32_49 = digitalRead(__var__67_97_116_99_104_32_49);
-    __var__66_111_116_116_111_109_45_68_101_103_114_101_101 += digitalRead(Bottom);
+    __var__67_97_116_99_104_32_68_101_103_114_101_101_32_50 = digitalRead(__var__67_97_116_99_104_32_50);
     __var__43 = 45;
     __var__45 = -45;
 }
@@ -192,10 +161,10 @@ void loop(){
         __func__85_112_45_100_111_119_110();
     }
     if((__var__66_45_45_32_88) > (520)){
-        catch();
+        catch_open();
     }
     if((__var__66_45_45_32_88) < (480)){
-        catch();
+        catch_close();
     }
     _loop();
 }
