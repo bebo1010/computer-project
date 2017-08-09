@@ -1,0 +1,164 @@
+#include <iostream>
+using namespace std;
+int main(){
+	long long int a,b,c,Q,W,E;
+	int A[100],B[100],C[100];
+	int x=0,y=0,z=0;
+	cin >> a >> b >> c;
+	Q=a; W=b; E=c;
+	while(1){
+	if(a==0) break;
+	int i=0;
+	A[i]=a%10;
+	a=a/10;
+	x++;
+	i++;
+	}
+	while(1){
+	if(b==0) break;
+	int i=0;
+	B[i]=b%10;
+	b=b/10;
+	y++;
+	i++;
+	}
+	while(1){
+	if(c==0) break;
+	int i=0;
+	C[i]=c%10;
+	c=c/10;
+	z++;
+	i++;
+	}
+	int X=x,Y=y,Z=z;
+	int F,S;//判定 
+	while(1){
+	if(x==0) { // F=1 A>B, F=2 A<B
+	F=1;
+	break;
+	}
+	if(y==0) {
+	F=2;
+	break;
+	}
+	if(A[x]>B[y]){
+	F=1;
+	break;
+	}
+	else{
+	x--;
+	y--;
+	}
+	}
+	x=X; y=Y;
+	switch (F){
+		case 1: //S=0 A<C, S=1 A>C
+		while(1){ 
+		if(x==0) {
+		S=1;
+		break;
+		}
+		if(z==0) {
+		S=0;
+		break;
+		}
+		if(A[x]>C[z]){
+		S=1;
+		break;
+		}
+		else{
+		x--;
+		z--;
+		}
+		}
+		case 2: //S=0 B<C, S=1 B>C
+		while(1){ 
+		if(y==0) {
+		S=1;
+		break;
+		}
+		if(z==0) {
+		S=0;
+		break;
+		}
+		if(B[y]>C[z]){
+		S=1;
+		break;
+		}
+		else{
+		y--;
+		z--;
+		}
+		}
+	}	// F=1 A>B,F=2 A<B  S=0 A<C, S=1 A>C
+	int T;
+	x=X; y=Y; z=Z;
+	if(F==1&&S==1){ // T=1 B>C,T=2 B<C
+		while(1){ //B C
+		if(y==0) {
+		T=1;
+		break;
+		}
+		if(z==0) {
+		T=2;
+		break;
+		}
+		if(B[y]>C[z]){
+		T=1;
+		break;
+		}
+		else{
+		y--;
+		z--;
+		}
+		}
+	}
+	if(F==2&&S==1){ // F=1 A>B, F=2 A<B  S=0 B<C, S=1 B>C  
+	while(1){ //A C
+		if(x==0) { // T=1, A>C T=2, A<C
+		T=1;
+		break;
+		}
+		if(z==0) {
+		T=2;
+		break;
+		}
+		if(A[x]>C[z]){
+		S=1;
+		break;
+		}
+		else{
+		x--;
+		z--;
+		}
+		}
+	}
+	if(F==1){
+		if(S==0){
+			cout << E << Q << W;
+		}
+		else{
+		if(T==1){
+			cout << Q << W << E;
+		}
+		else{
+			cout << Q << E << W;
+		}
+		}
+	}
+	else{
+		if(S==0){
+			cout << E << W << Q;
+		}
+		else{
+		if(T==1){
+			cout << W << Q << E;
+		}
+		else{
+			cout << W << E << Q;
+		}
+		}
+	}
+	return 0;
+	}
+    
