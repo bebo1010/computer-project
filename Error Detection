@@ -1,0 +1,39 @@
+#include <iostream>
+
+using namespace std;
+
+int main(){
+	int I[4];
+	int a=0,b=0;
+	for(int i=0;i<4;i++) cin >> I[i];
+	//a 奇數位數*2相加和 
+	int A[4];
+	for(int i=0;i<4;i++) A[i]=I[i];
+	for(int i=0;i<4;i++){
+	int x;
+	for(int j=0;j<4;j++){
+	if(j%2==0){
+	x=A[j]%10;
+	a=a+x;
+	A[j]=A[j]/10;
+	}
+	else{
+	x=A[j]%10;
+	b=b+x;
+	A[j]=A[j]/10;
+	}
+	}
+	}
+	a=a*2;
+	//b 偶數位數和
+	int X=a+b;
+	cout << X << endl;
+	if(X%10==0) {
+	cout << "Valid";
+	}
+	else{
+	cout << "Invalid";
+	}
+	//a+b 總和/10 餘數等於0 輸出Valid 反之輸出Invalid 
+    return 0;
+}
