@@ -26,6 +26,6 @@ int main(){
 	used[i] = false;
 	}
 	backtracking (0);
-	cout << endl << times;
+	cout << times;
 	return 0;
 }
