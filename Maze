@@ -3,7 +3,6 @@
 #include <time.h>
 using namespace std;
 char M[10][10];
-bool used[10][10];
 char Ans[10][10];
 void backtracking(int a,int b){ // a 橫排 b 直列 
 	if(a==10&&M[a][b]=='O'){
@@ -11,11 +10,11 @@ void backtracking(int a,int b){ // a 橫排 b 直列
 	}
 	for(int i=0;i<10;i++){
 		for(int j=0;j<10;j++) {
-		if(!used[i][j]){
-		used[i][j]=true;
+		if(){
+		
 		
 		backtracking();
-		used[i][j]=false;
+		
 		}
 		}
 	}
@@ -40,9 +39,6 @@ int main(){
 		for(int j=0;j<10;j++) cout << M[i][j];
 	cout << endl; 預覽起始迷宮 
 	}*/
-	for(int i=0;i<10;i++){
-		for(int j=0;j<10;j++) used[i][j]= false;
-	}
 	Rand();
 	/*cout << endl;
 	for(int i=0;i<10;i++){
