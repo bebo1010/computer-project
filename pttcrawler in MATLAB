@@ -1,0 +1,23 @@
+function  FinalTable = pttcrawler(pages,x)
+opt =  weboptions('KeyName','cookie','KeyValue','over18=1');
+web = strcat('https://www.ptt.cc/bbs/',x,'/index.html');
+try
+pttRaw = webread(web,opt);
+catch ME
+    error('打錯字了喇')
+end
+
+PreviousPage = string(regexp(pttRaw,strcat('<?a class="btn wide" href="/bbs/',x,'/index(\d*).html">&lsaquo; 上頁</a>?'),'tokens'));
+HomepageIndex = str2num(PreviousPage)+2;
+
+FinalTable = [];
+for i = 1:pages
+    fprintf('爬取目標: %d/%d頁\n',i,pages)
+    opt =  weboptions('KeyName','cookie','KeyValue','over18=1');    
+    url = strcat('https://www.ptt.cc/bbs/',x,'/index',num2str(HomepageIndex-i),'.html');
+    temp  = webread(url,opt);
+    Article = regexp(temp,'<div class="title">.*?</div>?','match');
+    Article = eraseTags(string(Article));
+    Article = regexprep(Article,'[\n\t]','');
+    FinalTable = [FinalTable;Article'];
+end
